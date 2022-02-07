@@ -1,0 +1,97 @@
+.carousel {
+  opacity: 70%;
+  height: 100%;
+}
+
+.contain {
+  height: 100vh;
+  overflow: hidden;
+}
+.trans-bg {
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 200;
+}
+.logo {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 70%;
+  z-index: 3000;
+}
+.box {
+  position: absolute;
+  top: 0;
+  margin-top: 30%;
+  left: 50%;
+  width: 600px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.164);
+  transition: 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #fff;
+}
+.in-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.in-box:after {
+  content: "";
+  width: 80%;
+  transform: scaleX(0);
+  height: 4px;
+  background-color: #fff;
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+.in-box:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom right;
+}
+.btn-menu {
+  position: relative;
+  left: 40%;
+  z-index: 1002;
+  color: #fff;
+  height: 40px;
+  width: 100px;
+  border: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+  background-color: #eeb004;
+  cursor: pointer;
+  font-stretch: extra-expanded;
+  margin: 10px;
+  transition: 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.btn-menu:hover {
+  background-color: #ffe190;
+  color: #000;
+}
+.btn-regster {
+  position: relative;
+  z-index: 1002;
+  color: #fff;
+  height: 40px;
+  width: 140px;
+  border: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+  background-color: #eeb004;
+  cursor: pointer;
+  font-stretch: extra-expanded;
+  margin: 10px;
+  transition: 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.btn-regster:hover {
+  background-color: #ffe190;
+  color: #000;
+}
