@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import UserModal from "./UserModal";
 
+
 const NavBar = () => {
   const [query, setQuery] = useState("");
+ 
   return (
     <div>
       <NavLink to="/">
