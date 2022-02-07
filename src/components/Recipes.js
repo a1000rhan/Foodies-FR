@@ -1,4 +1,6 @@
 import React from "react";
+import CategoryModal from "./CategoryModal";
+import RecipeModal from "./RecipeModal";
 
 const Recipes = () => {
   // const catogory = Catogory.map((e) => e);
@@ -12,10 +14,149 @@ const Recipes = () => {
       <div className="in-body-menu">
         <div>
           <div className="tools">
-            <select name="catogories">
-              <option></option>
+            <h4 className="cat">Categories</h4>
+            <select name="categories" className="checklist" id="categories">
+              <option value="lunch">Lunch</option>
+              <option value="breakfast">Breakfast</option>
             </select>
-            <button className="btn-reg">+ Add Repise</button>
+            <RecipeModal />
+            <CategoryModal />
+          </div>
+          <div className="posts">
+            {/* card */}
+            <div className="post">
+              <div className="img-post">
+                <img
+                  className="img-size"
+                  src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
+              <div className="owner">
+                <img
+                  className="avator"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+                  alt="owner"
+                />
+                <h6>Mohammad Alhamdan</h6>
+              </div>
+            </div>
+            {/* card */}
+            <div className="post">
+              <div className="img-post">
+                <img
+                  className="img-size"
+                  src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
+              <div className="owner">
+                <img
+                  className="avator"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+                  alt="owner"
+                />
+                <h6>Mohammad Alhamdan</h6>
+              </div>
+            </div>
+            {/* card */}
+            <div className="post">
+              <div className="img-post">
+                <img
+                  className="img-size"
+                  src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
+              <div className="owner">
+                <img
+                  className="avator"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+                  alt="owner"
+                />
+                <h6>Mohammad Alhamdan</h6>
+              </div>
+            </div>
+            {/* card */}
+            <div className="post">
+              <div className="img-post">
+                <img
+                  className="img-size"
+                  src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
+              <div className="owner">
+                <img
+                  className="avator"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+                  alt="owner"
+                />
+                <h6>Mohammad Alhamdan</h6>
+              </div>
+            </div>
+
+            {/* card */}
+            <div className="post">
+              <div className="img-post">
+                <img
+                  className="img-size"
+                  src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
+              <div className="owner">
+                <img
+                  className="avator"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+                  alt="owner"
+                />
+                <h6>Mohammad Alhamdan</h6>
+              </div>
+            </div>
+            {/* card */}
+            <div className="post">
+              <div className="img-post">
+                <img
+                  className="img-size"
+                  src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
+              <div className="owner">
+                <img
+                  className="avator"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+                  alt="owner"
+                />
+                <h6>Mohammad Alhamdan</h6>
+              </div>
+            </div>
+            {/* card */}
+            <div className="post">
+              <div className="img-post">
+                <img
+                  className="img-size"
+                  src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
+              <div className="owner">
+                <img
+                  className="avator"
+                  src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+                  alt="owner"
+                />
+                <h6>Mohammad Alhamdan</h6>
+              </div>
+            </div>
           </div>
         </div>
       </div>
