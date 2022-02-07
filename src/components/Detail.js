@@ -29,6 +29,7 @@ const Detail = () => {
               src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
             />
           </div>
+
           <h5>User Name</h5>
         </div>
         <div className="ingredients">
