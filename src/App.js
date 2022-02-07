@@ -1,11 +1,11 @@
 import "./App.css";
-import "./menu.css";
-import "./price.css";
+import "./recipe.css";
+import "./detail.css";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
-import Menu from "./components/Menu";
-import Priceing from "./components/Pricing";
+import Detail from "./components/Detail";
+import Recipes from "./components/Recipes";
 
 function App() {
   return (
@@ -13,8 +13,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/pricing" element={<Priceing />} />
+        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/detail" element={<Detail />} />
       </Routes>
     </dic>
   );

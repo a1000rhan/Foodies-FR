@@ -7,7 +7,9 @@ const NavBar = () => {
   const [query, setQuery] = useState("");
   return (
     <div>
-      <h3 className=" text-light logo">FOODIEZ</h3>
+      <NavLink to="/">
+        <h3 className="logo">FOODIEZ</h3>
+      </NavLink>
       <div className="navbar navbar-expand-lg navbar-dark trans-bg position-absolute top-0 end-0 px-5">
         <div className="container-fluid">
           <button
@@ -21,28 +23,26 @@ const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className="collapse navbar-collapse " id="navbarNav">
             <ul className="navbar-nav">
               <NavLink to="/" className="text-decoration-none">
-                <li className="nav-item">
-                  <a className="nav-link ">Home</a>
+                <li className="nav-item nav-t">
+                  <a className="nav-link  active">Home</a>
                 </li>
               </NavLink>
-              <NavLink to="/menu" className="text-decoration-none">
-                <li className="nav-item">
-                  <a className="nav-link">Menu</a>
+              <NavLink to="/recipe" className="text-decoration-none">
+                <li className="nav-item nav-t">
+                  <a className="nav-link active">Recpies</a>
                 </li>
               </NavLink>
-              <NavLink to="/pricing" className="text-decoration-none">
-                <li className="nav-item">
-                  <a className="nav-link">Pricing</a>
-                </li>
+              <NavLink to="/" className="text-decoration-none ">
+                <li className="nav-item nav-t"></li>
               </NavLink>
 
-              <li className="nav-item">
+              <li className="nav-item nav-t">
                 <UserModal />
               </li>
-              <i>
+              <i className="nav-t">
                 <SearchBar setQuery={setQuery} />
               </i>
             </ul>

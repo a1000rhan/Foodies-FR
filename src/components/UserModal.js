@@ -23,8 +23,11 @@ const UserModal = () => {
       <h3>
         <BsPersonCircle
           onClick={() => setIsOpen(true)}
-          className=" text-light"
+          className=" text-light nav-t"
         />
+        <button className="btn-reg nav-t " onClick={() => setIsOpen(true)}>
+          Registration
+        </button>
       </h3>
 
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>

@@ -26,3 +26,7 @@
   background-color: rgba(245, 222, 179, 0.466);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.tools {
+  display: flex;
+  justify-content: stretch;
+}

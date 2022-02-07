@@ -1,4 +1,4 @@
-.header-price {
+.header-detail {
   position: relative;
   width: 100%;
   height: 100%;
@@ -13,7 +13,7 @@
   background-image: url("https://www.bcdtravel.com/move-be/wp-content/uploads/sites/122/credit-card-debit-card.jpg");
 }
 
-.in-body-price {
+.in-body-detail {
   margin: auto;
   width: 60%;
   height: 100vh;

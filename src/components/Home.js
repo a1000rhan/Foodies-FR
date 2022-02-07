@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "./Slider";
 import { Link } from "react-router-dom";
-import { BsEyeFill } from "react-icons/bs";
+import { MdFoodBank } from "react-icons/md";
 
 const Home = () => {
   return (
@@ -12,9 +12,9 @@ const Home = () => {
           <h1>FOODIEZ</h1>
           <h4>Check Our Special Recpies, You're Gonna Die Happy</h4>
         </div>
-        <Link to="/menu">
+        <Link to="/recipes">
           <button className="btn-menu">
-            <BsEyeFill />
+            <MdFoodBank />
             &ensp; Recpie
           </button>
         </Link>
