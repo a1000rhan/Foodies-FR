@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Detail = (props) => {
+const Detail = () => {
   return (
     <div>
       <div className="header-dark">
         <div className="header-detail">
-          <h1 className="detail-title">D E T A I L S</h1>
+          <h1 className="header-title">D E T A I L S</h1>
         </div>
       </div>
       <div className="in-body-detail">
@@ -15,8 +16,10 @@ const Detail = (props) => {
             src="https://hips.hearstapps.com/hmg-prod/images/delish-bucatinipasta-028-ls-1607552701.jpg"
           />
         </div>
-        <div>
-          <h2>Need More Everyday Cooking Tips? Here Are 23 Of Our Favorites</h2>
+
+        <div className="detail-title">
+          <hr />
+          <h1>Need More Everyday Cooking Tips? Here Are 23 Of Our Favorites</h1>
         </div>
         <div className="user-info">
           <div className="img-user">
@@ -26,18 +29,21 @@ const Detail = (props) => {
               src="https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png"
             />
           </div>
-          <p>User Name</p>
+          <h5>User Name</h5>
         </div>
-        <div>
+        <div className="ingredients">
+          <hr />
           <h2>Ingredients</h2>
 
-          <p>2 cloves garlic</p>
-          <p>10 g parsley</p>
-          <p>100 g orzo</p>
-          <p>250 ml vegetable stock</p>
-          <p>2 cloves garlic</p>
+          <div className="ing-el">
+            <p>cloves garlic | </p>
+            <p>10 g parsley | </p>
+            <p>100 g orzo | </p>
+            <p>250 ml vegetable stock | </p>
+            <p>2 cloves garlic | </p>
+          </div>
         </div>
-        <div>
+        <div className="descption">
           <h2>Discretions</h2>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -51,8 +57,10 @@ const Detail = (props) => {
             PageMaker including versions of Lorem Ipsum
           </p>
         </div>
-        <div>
-          <button>Back</button>
+        <div className="back">
+          <Link to="/recipes">
+            <button className="btn-back">Back</button>
+          </Link>
         </div>
       </div>
     </div>
