@@ -5,6 +5,7 @@ import UserModal from "./UserModal";
 
 const NavBar = () => {
   const [query, setQuery] = useState("");
+
   return (
     <div className="nav-stuff">
       <NavLink to="/">
