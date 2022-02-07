@@ -26,9 +26,7 @@ const RecipeModal = () => {
   const handleImage = (event) => {
     setRecipe({ ...recipe, image: event.target.files[0] });
   };
-  const closeModal = () => {
-    setIsOpen("");
-  };
+
   return (
     <div>
       <button className="btn-reg btn-m" onClick={() => setIsOpen(true)}>
@@ -85,7 +83,7 @@ const RecipeModal = () => {
                 value={recipe.category}
                 onChange={handleChange}
               />
-              <CategoryModal closeModal={closeModal} />
+              <CategoryModal />
             </div>
             <div>
               <Form.Label>Ingredjents</Form.Label>

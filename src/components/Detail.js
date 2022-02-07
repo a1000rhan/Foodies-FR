@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 const Detail = () => {
   return (
     <div>
+      <h1 className="title-page">D E T I A L S</h1>
       <div className="header-dark">
-        <div className="header-detail">
-          <h1 className="zindex-popover">P R I C E</h1>
-        </div>
+        <div className="header-detail"></div>
       </div>
       <div className="in-body-detail">
         <div className="img-detail">
           <img
             className="img-size"
-            src="https://hips.hearstapps.com/hmg-prod/images/delish-bucatinipasta-028-ls-1607552701.jpg"
+            src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
+            alt="food"
           />
         </div>
 

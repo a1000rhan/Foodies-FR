@@ -6,7 +6,7 @@ import UserModal from "./UserModal";
 const NavBar = () => {
   const [query, setQuery] = useState("");
   return (
-    <div>
+    <div className="nav-stuff">
       <NavLink to="/">
         <h3 className="logo">FOODIEZ</h3>
       </NavLink>
@@ -27,12 +27,12 @@ const NavBar = () => {
             <ul className="navbar-nav">
               <NavLink to="/" className="text-decoration-none">
                 <li className="nav-item nav-t">
-                  <a className="nav-link  active">Home</a>
+                  <p className="nav-link  active">Home</p>
                 </li>
               </NavLink>
               <NavLink to="/recipes" className="text-decoration-none">
                 <li className="nav-item nav-t">
-                  <a className="nav-link active">Recpies</a>
+                  <p className="nav-link active">Recpies</p>
                 </li>
               </NavLink>
               <NavLink to="/" className="text-decoration-none ">

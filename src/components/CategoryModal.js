@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Form, FormControl } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { MdFoodBank } from "react-icons/md";
 
 const CategoryModal = () => {
