@@ -6,7 +6,7 @@ const Slider = () => {
     <div className="contain ">
       <Carousel
         autoPlay={true}
-        interval={4000}
+        interval={3000}
         infiniteLoop={true}
         emulateTouch={true}
         showThumbs={false}
