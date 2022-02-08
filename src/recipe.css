@@ -79,7 +79,7 @@
 }
 .owner-name {
   width: 80%;
-  overflow: auto;
+  overflow: hidden;
 }
 .avator {
   border: 1px solid #000;
