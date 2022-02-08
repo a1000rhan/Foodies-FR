@@ -1,0 +1,13 @@
+.header-nav-profi {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  position: static;
+  border-bottom: 10px solid black;
+}
+.title-user {
+  margin-left: 20%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
