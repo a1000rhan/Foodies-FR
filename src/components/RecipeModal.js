@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Form, FormControl } from "react-bootstrap";
 import { MdFoodBank } from "react-icons/md";
 import Categorie from "../Categories";
+import recipeStore from "../store/recipeStore";
 
 const RecipeModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const RecipeModal = () => {
     image: "",
     discerption: "",
     calories: "",
-    category: "",
+
     ingredjents: "",
     amount: "",
   });
@@ -20,7 +21,7 @@ const RecipeModal = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    recipeStore.createRecipe(recipe);
     setIsOpen(false);
   };
   const addToCategory = (event) => {
@@ -47,12 +48,7 @@ const RecipeModal = () => {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Label>Recipe Title </Form.Label>
-            <Form.Control
-              name="title"
-              value={recipe.title}
-              type="text"
-              onChange={handleChange}
-            />
+            <Form.Control name="title" type="text" onChange={handleChange} />
             <div>
               <Form.Label>Image </Form.Label>
               <FormControl
@@ -63,11 +59,10 @@ const RecipeModal = () => {
               />
             </div>
             <div>
-              <Form.Label>descrption</Form.Label>
+              <Form.Label>Descrption</Form.Label>
               <Form.Control
-                name="calorie"
+                name="description"
                 type="text"
-                value={recipe.description}
                 onChange={handleChange}
               />
             </div>
@@ -76,7 +71,6 @@ const RecipeModal = () => {
               <Form.Control
                 name="calorie"
                 type="text"
-                value={recipe.calories}
                 onChange={handleChange}
               />
             </div>
@@ -85,8 +79,7 @@ const RecipeModal = () => {
               <Form.Select
                 name="category"
                 type="text"
-                value={recipe.category}
-                onChange={handleChange}
+                onChange={"handleChange"}
               >
                 {cat}
               </Form.Select>
@@ -99,7 +92,6 @@ const RecipeModal = () => {
               <Form.Control
                 name="ingredjents"
                 type="text"
-                value={recipe.ingredjents}
                 onChange={handleChange}
               />
             </div>

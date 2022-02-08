@@ -1,7 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import recipeStore from "../store/recipeStore";
 
 const Detail = () => {
+  const { slug } = useParams();
+  const recipe = recipeStore.recipe.find(
+    (onereicpe) => onereicpe.slug === slug
+  );
   return (
     <div>
       <h1 className="title-page">D E T I A L S</h1>
@@ -10,16 +15,12 @@ const Detail = () => {
       </div>
       <div className="in-body-detail">
         <div className="img-detail">
-          <img
-            className="img-size"
-            src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
-            alt="food"
-          />
+          <img className="img-size" src={recipe.image} alt="food" />
         </div>
 
         <div className="detail-title">
           <hr />
-          <h1>Need More Everyday Cooking Tips? Here Are 23 Of Our Favorites</h1>
+          <h1>{recipe.title}</h1>
         </div>
         <div className="user-info">
           <div className="img-user">

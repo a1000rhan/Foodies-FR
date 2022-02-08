@@ -1,11 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import authstore from "../store/authStore";
 
 const RecipeItem = ({ recipe }) => {
+  console.log(authstore.user);
+
   return (
     <div>
       <div className="post">
         <div className="img-post">
-          <img className="img-size-recipe" src={recipe.image} alt="" />
+          <Link to={`/${recipe.slug}`}>
+            <img className="img-size-recipe" src={recipe.image} alt="" />
+          </Link>
         </div>
         <h3 className="m-2">{recipe.title}</h3>
         <div className="owner">
