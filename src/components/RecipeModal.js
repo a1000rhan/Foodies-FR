@@ -11,7 +11,6 @@ const RecipeModal = () => {
     image: "",
     discerption: "",
     calories: "",
-
     ingredjents: "",
     amount: "",
   });
