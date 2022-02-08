@@ -2,11 +2,11 @@ import SearchBar from "./SearchBar";
 import { useState } from "react";
 import Recipes from "./Recipes";
 
-const WandList = () => {
+const RecipeList = () => {
   const [query, setQuery] = useState("");
   const resipelist = Recipes.filter((recipe) =>
     recipe.core.toLocaleLowerCase().includes(query.toLowerCase())
-  ).map((wand) => <RecipeList recipe={recipe} key={recipe} />);
+  ).map((recipe) => <RecipeList recipe={recipe} key={recipe.id} />);
   return (
     <>
       <SearchBar setQuery={setQuery} />
