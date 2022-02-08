@@ -44,9 +44,7 @@ const NavBar = () => {
               <li className="nav-item nav-t">
                 <UserModal />
               </li>
-              <i className="nav-t">
-                <SearchBar />
-              </i>
+            
             </ul>
           </div>
         </div>
