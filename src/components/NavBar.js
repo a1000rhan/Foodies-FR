@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import UserModal from "./UserModal";
+import { observer } from "mobx-react";
 
 const NavBar = () => {
   const [query, setQuery] = useState("");
@@ -54,6 +55,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
-
-// setQuery={setQuery} 
+export default observer(NavBar);

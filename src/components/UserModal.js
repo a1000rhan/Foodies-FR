@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
+
 import authstore from "../store/authStore";
 
 const UserModal = () => {
@@ -31,8 +33,9 @@ const UserModal = () => {
       <h3>
         {authstore.user ? (
           <>
-            <BsPersonCircle className=" text-light nav-t" />
-
+            <Link to="userprofile">
+              <BsPersonCircle className=" text-light nav-t" />
+            </Link>
             <button className="btn-reg nav-t " onClick={signout}>
               Sign Out
             </button>
@@ -69,7 +72,7 @@ const UserModal = () => {
               />
             </div>
             <div>
-              <Form.Label>Change Password</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control
                 name="password"
                 type="password"
@@ -102,4 +105,4 @@ const UserModal = () => {
   );
 };
 
-export default UserModal;
+export default observer(UserModal);

@@ -19,10 +19,6 @@ const CategoryModal = () => {
 
   return (
     <div>
-      <button className="btn-regster" onClick={() => setIsOpen(true)}>
-        Add Category
-      </button>
-
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
           <Modal.Title>
