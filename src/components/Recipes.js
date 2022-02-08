@@ -31,7 +31,7 @@ const Recipes = () => {
             </select>
             <RecipeModal />
           </div>
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-start search">
             <SearchBar setQuery={setQuery} />
           </div>
           <div className="posts">
