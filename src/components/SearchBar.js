@@ -48,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const SearchBar = (props) => {
   const checkLength = (string) => {
-    if (string.length >= 3) props.setQuery(string);
+    if (string.length >= 1) props.setQuery(string);
     else props.setQuery("");
   };
   return (
@@ -58,7 +58,7 @@ const SearchBar = (props) => {
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
-          placeholder="Search…"
+          placeholder="Search.."
           onChange={(event) => checkLength(event.target.value)}
           inputProps={{ "aria-label": "search" }}
         />

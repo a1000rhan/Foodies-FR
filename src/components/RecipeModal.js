@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Modal, Form, FormControl } from "react-bootstrap";
 import { MdFoodBank } from "react-icons/md";
 import Categorie from "../Categories";
+import authstore from "../store/authStore";
 import recipeStore from "../store/recipeStore";
+import { observer } from "mobx-react";
 
 const RecipeModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,9 +36,10 @@ const RecipeModal = () => {
 
   return (
     <div>
-      <button className="btn-reg btn-m" onClick={() => setIsOpen(true)}>
-        + Add Repise
-      </button>
+      {authstore.user? <button className="btn-reg btn-m" onClick={() => setIsOpen(true)}>
+        + Add Recipes
+      </button>:""}
+     
 
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
@@ -108,4 +111,4 @@ const RecipeModal = () => {
   );
 };
 
-export default RecipeModal;
+export default observer( RecipeModal);
