@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Categorie from "../Categories";
 import RecipeModal from "./RecipeModal";
 
 const Recipes = () => {
-  // const catogory = Catogory.map((e) => e);
+  const cat = Categorie.map((ca) => <option>{ca.name}</option>);
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>
@@ -15,8 +16,7 @@ const Recipes = () => {
           <div className="tools">
             <h4 className="cat">Categories</h4>
             <select name="categories" className="checklist" id="categories">
-              <option value="lunch">Lunch</option>
-              <option value="breakfast">Breakfast</option>
+              {cat}
             </select>
             <RecipeModal />
           </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { BsPersonCircle } from "react-icons/bs";
+import authstore from "../store/authStore";
 
 const UserProfile = () => {
   return (
@@ -19,7 +20,7 @@ const UserProfile = () => {
             />
           </div>
 
-          <h2>User Name</h2>
+          <h2>{authstore.user.username.toUpperCase()}</h2>
         </div>
         <div className="my-info">
           <h5 className="my-recipe">My Recpies</h5>

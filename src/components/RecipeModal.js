@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Form, FormControl } from "react-bootstrap";
 import { MdFoodBank } from "react-icons/md";
-import CategoryModal from "./CategoryModal";
+import Categorie from "../Categories";
 
 const RecipeModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +23,14 @@ const RecipeModal = () => {
 
     setIsOpen(false);
   };
+  const addToCategory = (event) => {
+    event.preventDefault();
+    //add
+  };
   const handleImage = (event) => {
     setRecipe({ ...recipe, image: event.target.files[0] });
   };
+  const cat = Categorie.map((ca) => <option>{ca.name}</option>);
 
   return (
     <div>
@@ -82,8 +87,12 @@ const RecipeModal = () => {
                 type="text"
                 value={recipe.category}
                 onChange={handleChange}
-              />
-              <CategoryModal />
+              >
+                {cat}
+              </Form.Select>
+              <button className="btn-regster" onClick={addToCategory}>
+                Add Category
+              </button>
             </div>
             <div>
               <Form.Label>Ingredjents</Form.Label>

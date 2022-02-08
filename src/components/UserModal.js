@@ -72,7 +72,7 @@ const UserModal = () => {
               />
             </div>
             <div>
-              <Form.Label>Change Password</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control
                 name="password"
                 type="password"
