@@ -6,9 +6,10 @@ import RecpieItem from "./RecpieItem";
 
 const Recipes = () => {
   // const catogory = Catogory.map((e) => e);
-  const recpiesList = recipeStore.recipe.map((recpie) => (
-    <RecpieItem recpie={recpie} />
+  const recpielist = recipeStore.recipe.map((recipe) => (
+    <RecpieItem recipe={recipe} />
   ));
+
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>
@@ -25,7 +26,7 @@ const Recipes = () => {
             </select>
             <RecipeModal />
           </div>
-          <div className="posts">{recpiesList}</div>
+          <div className="posts">{recpielist}</div>
         </div>
       </div>
     </div>
