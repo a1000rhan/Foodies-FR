@@ -7,6 +7,7 @@ const Detail = () => {
   const recipe = recipeStore.recipe.find(
     (onereicpe) => onereicpe.slug === slug
   );
+  const ing = recipe.ingredients.map((inger) => <p>{inger} | </p>);
   return (
     <div>
       <h1 className="title-page">D E T I A L S</h1>
@@ -31,19 +32,13 @@ const Detail = () => {
             />
           </div>
 
-          <h5>User Name</h5>
+          <h5>{recipe.owner}</h5>
         </div>
         <div className="ingredients">
           <hr />
           <h2>Ingredients</h2>
 
-          <div className="ing-el">
-            <p>cloves garlic | </p>
-            <p>10 g parsley | </p>
-            <p>100 g orzo | </p>
-            <p>250 ml vegetable stock | </p>
-            <p>2 cloves garlic | </p>
-          </div>
+          <div className="ing-el">{ing}</div>
         </div>
         <div className="descption">
           <h2>Discretions</h2>
