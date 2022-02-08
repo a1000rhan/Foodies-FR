@@ -45,7 +45,7 @@ const NavBar = () => {
                 <UserModal />
               </li>
               <i className="nav-t">
-                <SearchBar setQuery={setQuery} />
+                <SearchBar />
               </i>
             </ul>
           </div>
@@ -56,3 +56,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+// setQuery={setQuery} 
