@@ -5,15 +5,17 @@ import RecipeModal from "./RecipeModal";
 import recipeStore from "../store/recipeStore";
 import RecipeItem from "./RecipeItem";
 import { observer } from "mobx-react";
-import { useState } from 'react';
+import { useState } from "react";
 import SearchBar from "./SearchBar";
 
 const Recipes = () => {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
   const cat = Categorie.map((ca) => <option>{ca.name}</option>);
-  const recpielist = recipeStore.recipe.filter(recipe=> recipe.title.toLowerCase().includes(query.toLowerCase())).map((recipe) => (
-    <RecipeItem recipe={recipe} />
-  ));
+  const recpielist = recipeStore.recipe
+    .filter((recipe) =>
+      recipe.title.toLowerCase().includes(query.toLowerCase())
+    )
+    .map((recipe) => <RecipeItem recipe={recipe} />);
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>
@@ -29,7 +31,9 @@ const Recipes = () => {
             </select>
             <RecipeModal />
           </div>
-          <SearchBar setQuery={setQuery}/>
+          <div className="d-flex justify-content-center">
+            <SearchBar setQuery={setQuery} />
+          </div>
           <div className="posts">
             {/* card */}
             {recpielist}
