@@ -11,19 +11,31 @@
   background-color: rgba(0, 0, 0, 0);
   z-index: 200;
 }
+
 .logo {
-  text-orientation: upright;
   position: absolute;
   color: #fff;
   margin: 15px;
   opacity: 70%;
   z-index: 3000;
 }
+.title-page {
+  position: absolute;
+  height: 400px;
+  z-index: 100;
+  font-size: 100px;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .box {
   position: absolute;
   top: 0;
   margin-top: 30%;
-  left: 40%;
+  left: 30%;
   width: 600px;
   height: 200px;
   background-color: rgba(255, 255, 255, 0.164);
@@ -61,11 +73,13 @@
   height: 40px;
   width: 150px;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
   background-color: #eeb004;
   cursor: pointer;
-  font-stretch: extra-expanded;
   margin: 10px;
   transition: 0.2s;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -74,6 +88,7 @@
   background-color: #ffe190;
   color: #000;
 }
+
 .btn-regster {
   position: relative;
   z-index: 1002;

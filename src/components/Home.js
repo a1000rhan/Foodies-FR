@@ -15,7 +15,7 @@ const Home = () => {
         <Link to="/recipes">
           <button className="btn-menu">
             <MdFoodBank />
-            &ensp; Recpie
+            &ensp; R E C I P E S
           </button>
         </Link>
       </div>

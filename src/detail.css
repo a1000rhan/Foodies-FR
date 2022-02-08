@@ -5,18 +5,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #fff;
   opacity: 70%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  background-image: url("https://www.bcdtravel.com/move-be/wp-content/uploads/sites/122/credit-card-debit-card.jpg");
+  background-position: bottom;
+  background-image: url("https://images.kitchenstories.io/wagtailOriginalImages/A1258-title/A1258-title-large-landscape-150.jpg");
 }
 
 .in-body-detail {
   margin: auto;
   width: 60%;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(245, 222, 179, 0.466);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
@@ -32,6 +32,7 @@
 .img-detail {
   width: 700px;
   border: 2px solid #000;
+  border-radius: 22px;
 }
 .img-size {
   width: 100%;
@@ -44,14 +45,14 @@
 .img-user {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  border: 1px solid #000;
   margin-right: 30px;
 }
 .user-in {
+  border: 1px solid #000;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
+  height: 100%;
 }
 .user-info {
   display: flex;

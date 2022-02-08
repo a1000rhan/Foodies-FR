@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Form } from "react-bootstrap";
 import { BsPersonCircle } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import authstore from "../store/authStore";
 
 const UserModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,19 +17,31 @@ const UserModal = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    event.target.value === "signUp"
+      ? authstore.signUp(user)
+      : authstore.signIn(user);
     setIsOpen(false);
+  };
+
+  const signout = () => {
+    authstore.signOut(user);
   };
   return (
     <div>
       <h3>
-        <BsPersonCircle
-          onClick={() => setIsOpen(true)}
-          className=" text-light nav-t"
-        />
-        <button className="btn-reg nav-t " onClick={() => setIsOpen(true)}>
-          Registration
-        </button>
+        {authstore.user ? (
+          <>
+            <BsPersonCircle className=" text-light nav-t" />
+
+            <button className="btn-reg nav-t " onClick={signout}>
+              Sign Out
+            </button>
+          </>
+        ) : (
+          <button className="btn-reg nav-t " onClick={() => setIsOpen(true)}>
+            Registration
+          </button>
+        )}
       </h3>
 
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
@@ -67,10 +81,18 @@ const UserModal = () => {
         </Modal.Body>
         <Modal.Footer>
           <div>
-            <button className="btn-regster" onClick={handleSubmit}>
+            <button
+              className="btn-regster"
+              value="signIn"
+              onClick={handleSubmit}
+            >
               Sign In
             </button>
-            <button className="btn-regster" onClick={handleSubmit}>
+            <button
+              className="btn-regster"
+              value="signUp"
+              onClick={handleSubmit}
+            >
               Sign Up
             </button>
           </div>
