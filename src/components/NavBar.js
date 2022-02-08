@@ -31,7 +31,7 @@ const NavBar = () => {
                   <p className="nav-link  active">Home</p>
                 </li>
               </NavLink>
-              <NavLink to="/recipes" className="text-decoration-none">
+              <NavLink to="/recipies" className="text-decoration-none">
                 <li className="nav-item nav-t">
                   <p className="nav-link active">Recpies</p>
                 </li>
@@ -56,4 +56,4 @@ const NavBar = () => {
 
 export default NavBar;
 
-// setQuery={setQuery} 
+// setQuery={setQuery}
