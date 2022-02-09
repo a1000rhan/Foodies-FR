@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import authstore from "../store/authStore";
 
+import { observer } from "mobx-react-lite";
+
 const RecipeItem = ({ recipe }) => {
-  console.log(authstore.user);
+  console.log(recipe.owner?.username);
 
   return (
     <div>
@@ -20,15 +22,12 @@ const RecipeItem = ({ recipe }) => {
             src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
             alt="owner"
           />
-          <h6 className="owner-name">{recipe.owner.username}</h6>
-          {console.log(
-            "🚀 ~ file: RecipeItem.js ~ line 24 ~ RecipeItem ~ recipe.owner",
-            recipe.owner
-          )}
+          <h6 className="owner-name">{recipe.owner?.username}</h6>
+          {console.log("🚀 ~ file: RecipeItem.js ~ line 24 ~ RecipeItem ~ recipe.owner", recipe.owner)}
         </div>
       </div>
     </div>
   );
 };
 
-export default RecipeItem;
+export default observer (RecipeItem);
