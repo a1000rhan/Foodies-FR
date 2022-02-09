@@ -8,7 +8,7 @@ class RecipeStore {
   }
   fetchRecipe = async () => {
     try {
-      const response = await api.get("/recipies");
+      const response = await api.get("/recipes");
       this.recipe = response.data;
     } catch (e) {
       console.log(e);
@@ -16,7 +16,7 @@ class RecipeStore {
   };
   createRecipe = async (newRecipe) => {
     try {
-      const response = await api.post("/recipies", newRecipe);
+      const response = await api.post("/recipes", newRecipe);
 
       this.recipe.push(response.data);
     } catch (e) {

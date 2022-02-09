@@ -14,7 +14,13 @@ const Recipes = () => {
   const recpielist = recipeStore.recipe
     .filter((recipe) =>
       recipe.title.toLowerCase().includes(query.toLowerCase())
-    )
+    ).filter((e)=>{
+      if(cat.name!=e){
+        return e
+      } else {
+        return cat.name
+      }
+    })
     .map((recipe) => <RecipeItem recipe={recipe} />);
   return (
     <div>
