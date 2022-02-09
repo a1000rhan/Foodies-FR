@@ -6,12 +6,12 @@ import { observer } from "mobx-react-lite";
 
 const RecipeItem = ({ recipe }) => {
   console.log(recipe.owner?.username);
-
+console.log(recipe.slug);
   return (
     <div>
       <div className="post">
         <div className="img-post">
-          <Link to={`/${recipe.slug}`}>
+          <Link to={`/recipes/${recipe.slug}`}>
             <img className="img-size-recipe" src={recipe.image} alt="" />
           </Link>
         </div>
