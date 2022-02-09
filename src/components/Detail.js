@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import recipeStore from "../store/recipeStore";
 import { observer } from "mobx-react-lite";
 
-
 const Detail = () => {
   const { slug } = useParams();
   const recipe = recipeStore.recipe.find(
@@ -44,9 +43,7 @@ const Detail = () => {
         </div>
         <div className="descption">
           <h2>Discretions</h2>
-          <p>
-            {recipe.description}
-          </p>
+          <p>{recipe.description}</p>
         </div>
         <div className="back">
           <Link to="/recipes">
@@ -58,4 +55,4 @@ const Detail = () => {
   );
 };
 
-export default observer (Detail);
+export default observer(Detail);
