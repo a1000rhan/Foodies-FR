@@ -7,21 +7,36 @@ import RecipeItem from "./RecipeItem";
 import { observer } from "mobx-react";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import { Category } from "@mui/icons-material";
 
 const Recipes = () => {
   const [query, setQuery] = useState("");
-  const cat = Categorie.map((ca) => <option>{ca.name}</option>);
+  const [filteredCat, setFilteredCat] = useState("chinese")
+  const cat = Categorie.map((ca) => <option value={ca.name}>{ca.name}</option>);
   const recpielist = recipeStore.recipe
     .filter((recipe) =>
       recipe.title.toLowerCase().includes(query.toLowerCase())
-    ).filter((e)=>{
-      if(cat.name!=e){
-        return e
-      } else {
-        return cat.name
-      }
-    })
-    .map((recipe) => <RecipeItem recipe={recipe} />);
+    ).filter(list=>list===filteredCat
+
+      ).map((recipe) => <RecipeItem recipe={recipe} />);
+
+    // const categ = Categorie.filter(e => e.name.toLocaleLowerCase().includes(filteredCat.toLocaleLowerCase())).map((e)=>(<RecipeItem e = {e}/>))
+    // const catList = catList.Categorie.filter((e)=>e.title)
+
+    // const filteredCat = (e) => {
+    //   if(!filteredCat){
+    //     return e.Categorie.title
+    //   } else {
+    //     return e.Categorie.title
+    //   }
+    // }
+
+const listChange=(event)=>{
+  return setFilteredCat(event)
+
+}
+    
+    
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>
@@ -32,7 +47,7 @@ const Recipes = () => {
         <div>
           <div className="tools">
             <h4 className="cat">Categories</h4>
-            <select name="categories" className="checklist" id="categories">
+            <select name="categories" className="checklist" id="categories" onChange={(event)=>listChange(event.target.value)}>
               {cat}
             </select>
             <RecipeModal />
@@ -44,6 +59,7 @@ const Recipes = () => {
             {/* card */}
             {recpielist}
           </div>
+        
         </div>
       </div>
     </div>
@@ -51,3 +67,7 @@ const Recipes = () => {
 };
 
 export default observer(Recipes);
+  // {/* <div>
+  //           <Recipes setFilteredCat={setFilteredCat}/>
+  //           {categ}
+  //         </div> */
