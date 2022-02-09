@@ -18,7 +18,7 @@ const RecipeModal = () => {
     image: "",
     discerption: "",
     calories: "",
-    category:["62034e97daa5696682932387"],
+    category:[],
     ingredients: ["6203813e1e52e4e8912555ed"],
     amount: "",
   });
@@ -45,8 +45,8 @@ const RecipeModal = () => {
     //add
   };
   const handleSelect = (event) => {
-    setValue ({...categoryStore.category,category:event.target.value.name})
-    console.log(event.target.value.name);
+    setValue ({...categoryStore.category,category:event.target.value})
+    
   }
 
   
@@ -111,15 +111,19 @@ const RecipeModal = () => {
                 </button>
                 <Form onSubmit={handleSubmit}>
                   <lable>
-                    Category Name:
+                    Category Name:  
                     <input type= "text" value={cato} onChange={handleChange}/>
                   </lable>
+                  <p>
+
+
+                  </p>
                   <lable>
                     Category Type:
                     <input type= "text" value={cato} onChange={handleChange}/>
                   </lable>
                 </Form>
-              
+              <p></p>
             </div>
             <div>
               <Form.Label>Ingredients</Form.Label>
