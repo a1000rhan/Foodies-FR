@@ -10,11 +10,13 @@ import SearchBar from "./SearchBar";
 import categoryStore from "../store/categoryStore";
 
 const Recipes = () => {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
   const cat = categoryStore.category.map((ca) => <option>{ca.title}</option>);
-  const recpielist = recipeStore.recipe.filter(recipe=> recipe.title.toLowerCase().includes(query.toLowerCase())).map((recipe) => (
-    <RecipeItem recipe={recipe} />
-  ));
+  const recpielist = recipeStore.recipe
+    .filter((recipe) =>
+      recipe.title.toLowerCase().includes(query.toLowerCase())
+    )
+    .map((recipe) => <RecipeItem recipe={recipe} key={recipe} />);
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>

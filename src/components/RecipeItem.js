@@ -23,11 +23,14 @@ const RecipeItem = ({ recipe }) => {
             alt="owner"
           />
           <h6 className="owner-name">{recipe.owner?.username}</h6>
-          {console.log("🚀 ~ file: RecipeItem.js ~ line 24 ~ RecipeItem ~ recipe.owner", recipe.owner)}
+          {console.log(
+            "🚀 ~ file: RecipeItem.js ~ line 24 ~ RecipeItem ~ recipe.owner",
+            recipe.owner
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default observer (RecipeItem);
+export default observer(RecipeItem);
