@@ -14,12 +14,14 @@ class RecipeStore {
       console.log(e);
     }
   };
-  createRecipe = async (newRecipe,categoryId) => {
-  console.log("🚀 ~ file: recipeStore.js ~ line 18 ~ RecipeStore ~ createRecipe= ~ categoryId", categoryId)
+  createRecipe = async (newRecipe, categoryId) => {
+    console.log(
+      "🚀 ~ file: recipeStore.js ~ line 18 ~ RecipeStore ~ createRecipe= ~ categoryId",
+      categoryId
+    );
 
-  
     try {
-      const response = await api.post(`category/${categoryId}/recipes`, newRecipe);
+      const response = await api.post(`/recipes`, newRecipe);
 
       this.recipe.push(response.data);
     } catch (e) {
