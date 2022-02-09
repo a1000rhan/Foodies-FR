@@ -7,13 +7,15 @@ import RecipeItem from "./RecipeItem";
 import { observer } from "mobx-react";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import categoryStore from "../store/categoryStore";
 
 const Recipes = () => {
   const [query, setQuery] = useState("");
-  const cat = Categorie.map((ca) => <option>{ca.name}</option>);
+  const cat = categoryStore.category.map((ca) => <option>{ca.title}</option>);
   const recpielist = recipeStore.recipe
     .filter((recipe) =>
       recipe.title.toLowerCase().includes(query.toLowerCase())
+<<<<<<< HEAD
     ).filter((e)=>{
       if(cat.name!=e){
         return e
@@ -22,6 +24,10 @@ const Recipes = () => {
       }
     })
     .map((recipe) => <RecipeItem recipe={recipe} />);
+=======
+    )
+    .map((recipe) => <RecipeItem recipe={recipe} key={recipe} />);
+>>>>>>> 6898128cc7d867abfef5434e35fc3bebb469b3a6
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>

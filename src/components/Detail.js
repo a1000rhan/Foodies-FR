@@ -1,13 +1,15 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import recipeStore from "../store/recipeStore";
+import { observer } from "mobx-react-lite";
+
 
 const Detail = () => {
   const { slug } = useParams();
   const recipe = recipeStore.recipe.find(
     (onereicpe) => onereicpe.slug === slug
   );
-  const ing = recipe.ingredients.map((inger) => <p>{inger} | </p>);
+  const ing = recipe.ingredients.map((inger) => <p>{inger.name} | </p>);
   return (
     <div>
       <h1 className="title-page">D E T I A L S</h1>
@@ -25,10 +27,15 @@ const Detail = () => {
         </div>
         <div className="user-info">
           <div className="img-user">
-            <img
+            {/* <img
               className="user-in"
               alt="avatar"
+<<<<<<< HEAD
               src=""/>
+=======
+              src =""
+            /> */}
+>>>>>>> 6898128cc7d867abfef5434e35fc3bebb469b3a6
           </div>
 
           <h5>{recipe.owner.username}</h5>
@@ -42,15 +49,7 @@ const Detail = () => {
         <div className="descption">
           <h2>Discretions</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry’s standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum
+            {recipe.description}
           </p>
         </div>
         <div className="back">
@@ -63,4 +62,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default observer (Detail);
