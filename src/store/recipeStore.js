@@ -14,12 +14,7 @@ class RecipeStore {
       console.log(e);
     }
   };
-  createRecipe = async (newRecipe, categoryId) => {
-    console.log(
-      "🚀 ~ file: recipeStore.js ~ line 18 ~ RecipeStore ~ createRecipe= ~ categoryId",
-      categoryId
-    );
-
+  createRecipe = async (newRecipe) => {
     try {
       const response = await api.post(`/recipes`, newRecipe);
 

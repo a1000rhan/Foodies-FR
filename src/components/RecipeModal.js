@@ -18,8 +18,8 @@ const RecipeModal = () => {
     image: "",
     discerption: "",
     calories: "",
-    category: [],
-    ingredjents: [],
+    category: ["62034e97daa5696682932387"],
+    ingredients: ["6203813e1e52e4e8912555ed"],
     amount: "",
   });
 
@@ -30,7 +30,7 @@ const RecipeModal = () => {
     event.preventDefault();
     const categoryId = categoryStore.category[1]._id;
     console.log(categoryId);
-    recipeStore.createRecipe(recipe, categoryId);
+    recipeStore.createRecipe(recipe);
     setIsOpen(false);
   };
   const addToCategory = (event) => {

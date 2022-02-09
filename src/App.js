@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/:slug" element={<Detail />} />
+        <Route path="/recipes/:slug" element={<Detail />} />
         <Route path="/userprofile" element={<UserProfile />} />
       </Routes>
     </dic>
