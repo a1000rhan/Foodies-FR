@@ -19,8 +19,7 @@ const RecipeModal = () => {
     discerption: "",
     calories: "",
     category: ["62034e97daa5696682932387"],
-    ingredients: ["6203813e1e52e4e8912555ed"],
-    amount: "",
+    ingredients: ["620381371e52e4e8912555e6", "6203813e1e52e4e8912555ed"],
   });
 
   const handleChange = (event) => {
@@ -28,8 +27,6 @@ const RecipeModal = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const categoryId = categoryStore.category[1]._id;
-    console.log(categoryId);
     recipeStore.createRecipe(recipe);
     setIsOpen(false);
   };
