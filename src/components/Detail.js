@@ -9,7 +9,7 @@ const Detail = () => {
   const recipe = recipeStore.recipe.find(
     (onereicpe) => onereicpe.slug === slug
   );
-  const ing = recipe.ingredients.map((inger) => <p>{inger} | </p>);
+  const ing = recipe.ingredients.map((inger) => <p>{inger.name} | </p>);
   return (
     <div>
       <h1 className="title-page">D E T I A L S</h1>

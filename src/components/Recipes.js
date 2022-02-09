@@ -11,12 +11,20 @@ import categoryStore from "../store/categoryStore";
 
 const Recipes = () => {
   const [query, setQuery] = useState("");
+<<<<<<< HEAD
   const cat = Categorie.map((ca) => <option>{ca.name}</option>);
+=======
+  const cat = categoryStore.category.map((ca) => <option>{ca.title}</option>);
+>>>>>>> 71d7a48e0e8b0a2a1bd9a3208d0ac7e9d38ac0e1
   const recpielist = recipeStore.recipe
     .filter((recipe) =>
       recipe.title.toLowerCase().includes(query.toLowerCase())
     )
+<<<<<<< HEAD
     .map((recipe) => <RecipeItem recipe={recipe} />);
+=======
+    .map((recipe) => <RecipeItem recipe={recipe} key={recipe} />);
+>>>>>>> 71d7a48e0e8b0a2a1bd9a3208d0ac7e9d38ac0e1
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>
