@@ -11,23 +11,17 @@ import categoryStore from "../store/categoryStore";
 
 const Recipes = () => {
   const [query, setQuery] = useState("");
+  const [filteredCat, setFilteredCat] = useState("")
   const cat = categoryStore.category.map((ca) => <option>{ca.title}</option>);
   const recpielist = recipeStore.recipe
     .filter((recipe) =>
       recipe.title.toLowerCase().includes(query.toLowerCase())
-<<<<<<< HEAD
-    ).filter((e)=>{
-      if(cat.name!=e){
-        return e
-      } else {
-        return cat.name
-      }
-    })
-    .map((recipe) => <RecipeItem recipe={recipe} />);
-=======
     )
     .map((recipe) => <RecipeItem recipe={recipe} key={recipe} />);
->>>>>>> 6898128cc7d867abfef5434e35fc3bebb469b3a6
+    
+    const cate = categoryStore.category.filter((element) => element.title.toLowerCase().includes(filteredCat.toLocaleLowerCase())).map((element) => (<RecipeItem element={element} key={element}/>))
+               
+  
   return (
     <div>
       <h1 className="title-page">R E C I P E S </h1>
@@ -50,6 +44,13 @@ const Recipes = () => {
             {/* card */}
             {recpielist}
           </div>
+          <div>
+            <input  onChange={e=>setFilteredCat(e.target.value)}/>
+         
+          </div>
+          {/* <div>
+          {cate}
+          </div> */}
         </div>
       </div>
     </div>

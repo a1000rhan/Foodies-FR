@@ -30,12 +30,8 @@ const Detail = () => {
             {/* <img
               className="user-in"
               alt="avatar"
-<<<<<<< HEAD
-              src=""/>
-=======
               src =""
             /> */}
->>>>>>> 6898128cc7d867abfef5434e35fc3bebb469b3a6
           </div>
 
           <h5>{recipe.owner.username}</h5>
