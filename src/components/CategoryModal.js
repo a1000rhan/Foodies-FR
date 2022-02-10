@@ -3,6 +3,7 @@ import { Modal, Form } from "react-bootstrap";
 import { MdFoodBank } from "react-icons/md";
 
 const CategoryModal = () => {
+ 
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState({
     title: "",
@@ -16,6 +17,8 @@ const CategoryModal = () => {
 
     setIsOpen(false);
   };
+
+ 
 
   return (
     <div>
@@ -44,6 +47,7 @@ const CategoryModal = () => {
           </div>
         </Modal.Footer>
       </Modal>
+     
     </div>
   );
 };

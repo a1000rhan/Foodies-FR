@@ -57,6 +57,8 @@ const Recipes = () => {
             {/* card */}
             {recpielist}
           </div>
+
+        
         </div>
       </div>
     </div>
