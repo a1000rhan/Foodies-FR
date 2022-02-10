@@ -4,6 +4,7 @@ import api from "./api";
 
 class AuthStore {
   user = null;
+  loading=true;
 
   constructor() {
     makeAutoObservable(this, {});
@@ -29,6 +30,7 @@ class AuthStore {
     try {
       const resp = await api.post("/signin", user);
       this.setUser(resp.data.token);
+    
     } catch (error) {}
   };
 

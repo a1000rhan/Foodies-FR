@@ -4,34 +4,17 @@ import authstore from "../store/authStore";
 import recipeStore from "../store/recipeStore";
 import RecipeModal from "./RecipeModal";
 import {observer} from "mobx-react";
+import UserItem from "./UserItem";
 
 const UserProfile = () => {
 
 
+  if (recipeStore.loading) return <h1>loading</h1>;
 
+  console.log(recipeStore.recipe[0].owner._id)
+  console.log("🚀 ~ file: UserProfile.js ~ line 16 ~ UserProfile ~ authstore.user._id", authstore.user? authstore.user.id:"")
 
-  
-  const recpielist = recipeStore.recipe.map((myrec)=> <div className="post">
-  <div className="img-post">
-  
-    <img
-      className="img-size-recipe"
-      src={myrec.image}
-      alt=""
-    />
-  </div>
-  <h3 className="m-2">{myrec.title}</h3>
-  
-  <div className="owner">
-    <img
-      className="avator"
-      src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
-      alt="owner"
-      
-    />
-    <h6>{myrec.owner.username}</h6>
-  </div>
-</div>).filter((own)=> own.owner === authstore.user._id)
+  const recpielist = recipeStore.recipe.filter((own)=> own.owner._id == authstore.user._id).map((myrec)=><UserItem myrec={myrec} key={myrec} />)
   
   return (
     <div>
@@ -50,7 +33,7 @@ const UserProfile = () => {
             />
           </div>
 
-          <h2>{authstore.user.username.toUpperCase()}</h2>
+          <h2>{authstore.user? authstore.user.username.toUpperCase():""}</h2>
         </div>
         <div className="my-info">
           <h5 className="my-recipe">My Recpies</h5>
