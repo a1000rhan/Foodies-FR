@@ -14,17 +14,26 @@ class IngredientStore {
       console.log(e);
     }
   };
-//   createRecipe = async (newRecipe) => {
-//     try {
-//       const response = await api.post("/recipies", newRecipe);
 
-//       this.recipe.push(response.data);
-//     } catch (e) {
-//       alert("cannot create new rcipe");
-//       console.log(e);
-//     }
-//     // to do : call BE to create a rcipe
-//   };
+  createIngredient = async (addNewIng) => {
+    try {
+      const response = api.post("/ingredient", addNewIng);
+      this.ingredient.push(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  //   createRecipe = async (newRecipe) => {
+  //     try {
+  //       const response = await api.post("/recipies", newRecipe);
+
+  //       this.recipe.push(response.data);
+  //     } catch (e) {
+  //       alert("cannot create new rcipe");
+  //       console.log(e);
+  //     }
+  //     // to do : call BE to create a rcipe
+  //   };
 }
 const ingredientStore = new IngredientStore();
 ingredientStore.fetchIngredient();

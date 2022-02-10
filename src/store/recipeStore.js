@@ -15,23 +15,10 @@ class RecipeStore {
     }
   };
   createRecipe = async (newRecipe) => {
-    console.log(
-      "🚀 ~ file: recipeStore.js ~ line 18 ~ RecipeStore ~ createRecipe= ~ newRecipe",
-      newRecipe
-    );
-
     try {
       const formData = new FormData();
       for (const key in newRecipe) {
         formData.append(key, newRecipe[key]);
-        console.log(
-          "🚀 ~ file: recipeStore.js ~ line 27 ~ RecipeStore ~ createRecipe= ~ key",
-          key
-        );
-        console.log(
-          "🚀 ~ file: recipeStore.js ~ line 26 ~ RecipeStore ~ createRecipe= ~ newRecipe[key]",
-          newRecipe[key]
-        );
       }
 
       const response = await api.post(`/recipes`, formData);
