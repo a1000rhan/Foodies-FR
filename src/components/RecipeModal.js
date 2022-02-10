@@ -28,6 +28,7 @@ const RecipeModal = () => {
     calories: "",
     category: [],
     ingredients: ["620381371e52e4e8912555e6", "6203813e1e52e4e8912555ed"],
+
   });
   console.log(
     "🚀 ~ file: RecipeModal.js ~ line 24 ~ RecipeModal ~ recipe",
