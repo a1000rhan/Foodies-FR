@@ -15,11 +15,13 @@ class RecipeStore {
     }
   };
   createRecipe = async (newRecipe) => {
-  
-
-  
     try {
-      const response = await api.post(`/recipes`, newRecipe);
+      const formData = new FormData();
+      for (const key in newRecipe) {
+        formData.append(key, newRecipe[key]);
+      }
+
+      const response = await api.post(`/recipes`, formData);
 
       this.recipe.push(response.data);
     } catch (e) {

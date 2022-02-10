@@ -14,18 +14,17 @@ class CategoryStore {
       console.log(e);
     }
   };
-//   createRecipe = async (newRecipe) => {
-//     try {
-//       const response = await api.post("/recipies", newRecipe);
 
-//       this.recipe.push(response.data);
-//     } catch (e) {
-//       alert("cannot create new rcipe");
-//       console.log(e);
-//     }
-//     // to do : call BE to create a rcipe
-//   };
+  createCategory = async (addNewCategory) => {
+    try {
+      const response = api.post("/category", addNewCategory);
+      this.category.push(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 }
+
 const categoryStore = new CategoryStore();
 categoryStore.fetchCategory();
 

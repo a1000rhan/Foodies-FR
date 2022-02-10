@@ -11,56 +11,123 @@ import ingredientStore from "../store/ingredientStore";
 
 const RecipeModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [value,setValue] = useState("");
-  const cato = []
+
+  const [categoryValue, setCategoryValue] = useState("Italian");
+  const [chooseCato, setChooseCato] = useState([]);
+  const [newCat, setNewCat] = useState("");
+
+  const [ingValue, setIngValue] = useState("lemon");
+  const [chooseIng, setChooseIng] = useState([]);
+  const [newIngr, setNewIngr] = useState("");
+
   const [recipe, setRecipe] = useState({
     title: "",
     image: "",
     discerption: "",
     calories: "",
+<<<<<<< HEAD
     category:[],
     ingredients: ["6203813e1e52e4e8912555ed"],
     amount: "",
+=======
+    category: "",
+    ingredients: "",
+>>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
   });
-
 
   const handleChange = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const categoryId = categoryStore.category[1]._id
-    console.log( categoryId)
+
     recipeStore.createRecipe(recipe);
+
     setIsOpen(false);
+  };
+
+  //Add to Category Array
+  const handleSelectCat = (event) => {
+    setCategoryValue(event.target.value);
   };
   const addToCategory = (event) => {
     event.preventDefault();
-    cato.push(value)
-    console.log(cato);
+    const myCato = categoryStore.category.find(
+      (ca) => categoryValue === ca.title
+    );
+    setChooseCato([...chooseCato, myCato.title]);
+
+    setRecipe({ ...recipe, category: myCato._id });
     //add
+  };
+
+  //Add New Category
+  const handleChangeNewCat = (event) => {
+    const newData = event.target.value;
+    setNewCat({ title: newData });
+  };
+  const addNewCategory = (event) => {
+    event.preventDefault();
+    categoryStore.createCategory(newCat);
+  };
+
+  //Add to Ingerdient Array
+  const handleChangeIng = (event) => {
+    setIngValue(event.target.value);
   };
   const addToIngredient = (event) => {
     event.preventDefault();
+    const myIng = ingredientStore.ingredient.find(
+      (Ing) => ingValue === Ing.name
+    );
+    setChooseIng([...chooseIng, myIng.name]);
     //add
+    setRecipe({ ...recipe, ingredients: myIng._id });
   };
+
+  //add New Ingerdient
+  const handleChangeNewIng = (event) => {
+    const newIngr = event.target.value;
+    setNewIngr({ name: newIngr });
+  };
+  const addNewIngrediants = (event) => {
+    event.preventDefault();
+    ingredientStore.createIngredient(newIngr);
+  };
+<<<<<<< HEAD
   const handleSelect = (event) => {
     setValue ({...categoryStore.category,category:event.target.value})
     
   }
+=======
+>>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
 
-  
   const handleImage = (event) => {
     setRecipe({ ...recipe, image: event.target.files[0] });
   };
   const cat = categoryStore.category.map((ca) => <option>{ca.title}</option>);
-  const ing = ingredientStore.ingredient.map((ca) => <option>{ca.name}</option>);
+  const ing = ingredientStore.ingredient.map((ca) => (
+    <option value={ca.name}>{ca.name}</option>
+  ));
+  const categoryList = chooseCato.map((cato) => (
+    <div>
+      <i>{cato}</i>
+    </div>
+  ));
+  const ingredientsList = chooseIng.map((ingr) => (
+    <div>
+      <i>{ingr}</i>
+    </div>
+  ));
   return (
     <div>
-      {authstore.user? <button className="btn-reg btn-m" onClick={() => setIsOpen(true)}>
-        + Add Recipes
-      </button>:""}
-     
+      {authstore.user ? (
+        <button className="btn-reg btn-m" onClick={() => setIsOpen(true)}>
+          + Add Recipes
+        </button>
+      ) : (
+        ""
+      )}
 
       <Modal centered show={isOpen} onHide={() => setIsOpen(false)}>
         <Modal.Header closeButton>
@@ -99,16 +166,24 @@ const RecipeModal = () => {
             </div>
             <div>
               <Form.Label>Category</Form.Label>
-              <Form.Select 
+              <Form.Select
                 name="category"
                 type="text"
-                onChange={handleSelect}
+                onChange={handleSelectCat}
               >
                 {cat}
               </Form.Select>
-              <button className="btn-regster" onClick={addToCategory} >
+              <button className="btn-regster" onClick={addToCategory}>
                 Add Category
+              </button>
+
+              <lable>Category Name:</lable>
+              <ol>{categoryList}</ol>
+              <div>
+                <button className="btn-regster" onClick={addNewCategory}>
+                  New Category
                 </button>
+<<<<<<< HEAD
                 <Form onSubmit={handleSubmit}>
                   <lable>
                     Category Name:  
@@ -124,19 +199,37 @@ const RecipeModal = () => {
                   </lable>
                 </Form>
               <p></p>
+=======
+                <input
+                  placeholder="type new category"
+                  name="newCat"
+                  onChange={handleChangeNewCat}
+                />
+              </div>
+>>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
             </div>
             <div>
               <Form.Label>Ingredients</Form.Label>
               <Form.Select
                 name="ingredients"
                 type="text"
-                onChange={handleChange}
+                onChange={handleChangeIng}
               >
                 {ing}
-                </Form.Select>
-                 <button className="btn-regster" onClick={addToIngredient}>
+              </Form.Select>
+              <button className="btn-regster" onClick={addToIngredient}>
                 Add Ingredients
               </button>
+              <lable>Ingredients Name:</lable>
+              <ol>{ingredientsList}</ol>
+              <button className="btn-regster" onClick={addNewIngrediants}>
+                New Ingredient
+              </button>
+              <input
+                placeholder="type new Ingredient"
+                name="newIng"
+                onChange={handleChangeNewIng}
+              />
             </div>
           </Form>
         </Modal.Body>
@@ -152,4 +245,4 @@ const RecipeModal = () => {
   );
 };
 
-export default observer( RecipeModal);
+export default observer(RecipeModal);

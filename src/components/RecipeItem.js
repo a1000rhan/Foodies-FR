@@ -5,8 +5,6 @@ import authstore from "../store/authStore";
 import { observer } from "mobx-react-lite";
 
 const RecipeItem = ({ recipe }) => {
-  console.log(recipe.owner?.username);
-console.log(recipe.slug);
   return (
     <div>
       <div className="post">
@@ -23,10 +21,6 @@ console.log(recipe.slug);
             alt="owner"
           />
           <h6 className="owner-name">{recipe.owner?.username}</h6>
-          {console.log(
-            "🚀 ~ file: RecipeItem.js ~ line 24 ~ RecipeItem ~ recipe.owner",
-            recipe.owner
-          )}
         </div>
       </div>
     </div>
