@@ -27,7 +27,7 @@ const RecipeModal = () => {
     discerption: "",
     calories: "",
     category: [],
-    ingredients: ["620381371e52e4e8912555e6", "6203813e1e52e4e8912555ed"],
+    ingredients: [],
   });
   console.log(
     "🚀 ~ file: RecipeModal.js ~ line 24 ~ RecipeModal ~ recipe",
@@ -73,9 +73,9 @@ const RecipeModal = () => {
     const myIng = ingredientStore.ingredient.find(
       (Ing) => ingValue === Ing.name
     );
-    setChooseIng([...chooseIng, myIng.name]);
+    setChooseIng([...chooseIng, myIng]);
     //add
-    setRecipe({ ...recipe, ingredients: myIng._id });
+    setRecipe({ ...recipe, ingredients: chooseIng.map((ing) => ing._id) });
   };
 
   //add New Ingerdient
@@ -104,7 +104,7 @@ const RecipeModal = () => {
 
   const ingredientsList = chooseIng.map((ingr) => (
     <div>
-      <i>{ingr}</i>
+      <i>{ingr.title}</i>
     </div>
   ));
   const handleSubmit = (event) => {
