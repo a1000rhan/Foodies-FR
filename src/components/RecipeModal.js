@@ -146,8 +146,8 @@ const RecipeModal = () => {
               <Form.Label>Image </Form.Label>
               <FormControl
                 name="image"
-                type="file"
-                onChange={handleImage}
+                type="text"
+                onChange={handleChange}
                 placeholder="Image"
               />
             </div>
