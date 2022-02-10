@@ -3,6 +3,7 @@ import api from "./api";
 
 class RecipeStore {
   recipe = [];
+  loading = true;
   constructor() {
     makeAutoObservable(this, {});
   }
@@ -10,18 +11,27 @@ class RecipeStore {
     try {
       const response = await api.get("/recipes");
       this.recipe = response.data;
+      this.loading = false;
     } catch (e) {
       console.log(e);
     }
   };
   createRecipe = async (newRecipe) => {
+    console.log(
+      "🚀 ~ file: recipeStore.js ~ line 18 ~ RecipeStore ~ createRecipe= ~ newRecipe",
+      newRecipe
+    );
     try {
       const formData = new FormData();
       for (const key in newRecipe) {
         formData.append(key, newRecipe[key]);
+        console.log(
+          "🚀 ~ file: recipeStore.js ~ line 22 ~ RecipeStore ~ createRecipe= ~ newRecipe[key]",
+          newRecipe[key]
+        );
       }
 
-      const response = await api.post(`/recipes`, formData);
+      const response = await api.post(`/recipes`, newRecipe);
 
       this.recipe.push(response.data);
     } catch (e) {

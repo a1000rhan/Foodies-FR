@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Form, FormControl } from "react-bootstrap";
 import { MdFoodBank } from "react-icons/md";
-import Categorie from "../Categories";
-import Ingredients from "../Ingredients";
 import authstore from "../store/authStore";
 import recipeStore from "../store/recipeStore";
 import { observer } from "mobx-react";
@@ -11,9 +9,12 @@ import ingredientStore from "../store/ingredientStore";
 
 const RecipeModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const [categoryValue, setCategoryValue] = useState("Italian");
   const [chooseCato, setChooseCato] = useState([]);
+  console.log(
+    "🚀 ~ file: RecipeModal.js ~ line 17 ~ RecipeModal ~ chooseCato",
+    chooseCato
+  );
   const [newCat, setNewCat] = useState("");
 
   const [ingValue, setIngValue] = useState("lemon");
@@ -25,25 +26,18 @@ const RecipeModal = () => {
     image: "",
     discerption: "",
     calories: "",
-<<<<<<< HEAD
-    category:[],
-    ingredients: ["6203813e1e52e4e8912555ed"],
-    amount: "",
-=======
-    category: "",
-    ingredients: "",
->>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
-  });
+    category: [],
+    ingredients: ["620381371e52e4e8912555e6", "6203813e1e52e4e8912555ed"],
 
+  });
+  console.log(
+    "🚀 ~ file: RecipeModal.js ~ line 24 ~ RecipeModal ~ recipe",
+    recipe
+  );
+
+  if (categoryStore.loading) return <h1>loading</h1>;
   const handleChange = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    recipeStore.createRecipe(recipe);
-
-    setIsOpen(false);
   };
 
   //Add to Category Array
@@ -55,9 +49,9 @@ const RecipeModal = () => {
     const myCato = categoryStore.category.find(
       (ca) => categoryValue === ca.title
     );
-    setChooseCato([...chooseCato, myCato.title]);
+    setChooseCato([...chooseCato, myCato]);
 
-    setRecipe({ ...recipe, category: myCato._id });
+    setRecipe({ ...recipe, category: chooseCato.map((cat) => cat._id) });
     //add
   };
 
@@ -94,13 +88,6 @@ const RecipeModal = () => {
     event.preventDefault();
     ingredientStore.createIngredient(newIngr);
   };
-<<<<<<< HEAD
-  const handleSelect = (event) => {
-    setValue ({...categoryStore.category,category:event.target.value})
-    
-  }
-=======
->>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
 
   const handleImage = (event) => {
     setRecipe({ ...recipe, image: event.target.files[0] });
@@ -109,16 +96,33 @@ const RecipeModal = () => {
   const ing = ingredientStore.ingredient.map((ca) => (
     <option value={ca.name}>{ca.name}</option>
   ));
+
   const categoryList = chooseCato.map((cato) => (
     <div>
-      <i>{cato}</i>
+      <i>{cato.title}</i>
     </div>
   ));
+
   const ingredientsList = chooseIng.map((ingr) => (
     <div>
       <i>{ingr}</i>
     </div>
   ));
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    recipeStore.createRecipe(recipe);
+    setRecipe({
+      title: "",
+      image: "",
+      discerption: "",
+      calories: "",
+      category: [],
+      ingredients: [],
+    });
+
+    setIsOpen(false);
+  };
   return (
     <div>
       {authstore.user ? (
@@ -143,8 +147,8 @@ const RecipeModal = () => {
               <Form.Label>Image </Form.Label>
               <FormControl
                 name="image"
-                type="file"
-                onChange={handleImage}
+                type="text"
+                onChange={handleChange}
                 placeholder="Image"
               />
             </div>
@@ -183,30 +187,12 @@ const RecipeModal = () => {
                 <button className="btn-regster" onClick={addNewCategory}>
                   New Category
                 </button>
-<<<<<<< HEAD
-                <Form onSubmit={handleSubmit}>
-                  <lable>
-                    Category Name:  
-                    <input type= "text" value={cato} onChange={handleChange}/>
-                  </lable>
-                  <p>
-
-
-                  </p>
-                  <lable>
-                    Category Type:
-                    <input type= "text" value={cato} onChange={handleChange}/>
-                  </lable>
-                </Form>
-              <p></p>
-=======
                 <input
                   placeholder="type new category"
                   name="newCat"
                   onChange={handleChangeNewCat}
                 />
               </div>
->>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
             </div>
             <div>
               <Form.Label>Ingredients</Form.Label>

@@ -3,6 +3,7 @@ import api from "./api";
 
 class CategoryStore {
   category = [];
+  loading = true;
   constructor() {
     makeAutoObservable(this, {});
   }
@@ -10,6 +11,7 @@ class CategoryStore {
     try {
       const response = await api.get("/category");
       this.category = response.data;
+      this.loading = false;
     } catch (e) {
       console.log(e);
     }
