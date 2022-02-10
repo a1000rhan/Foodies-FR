@@ -1,8 +1,38 @@
 import React from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import authstore from "../store/authStore";
+import recipeStore from "../store/recipeStore";
+import RecipeModal from "./RecipeModal";
+import {observer} from "mobx-react";
 
 const UserProfile = () => {
+
+
+
+
+  
+  const recpielist = recipeStore.recipe.map((myrec)=> <div className="post">
+  <div className="img-post">
+  
+    <img
+      className="img-size-recipe"
+      src={myrec.image}
+      alt=""
+    />
+  </div>
+  <h3 className="m-2">{myrec.title}</h3>
+  
+  <div className="owner">
+    <img
+      className="avator"
+      src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
+      alt="owner"
+      
+    />
+    <h6>{myrec.owner.username}</h6>
+  </div>
+</div>).filter((own)=> own.owner === authstore.user._id)
+  
   return (
     <div>
       <div className="header-nav-profi"></div>
@@ -27,25 +57,9 @@ const UserProfile = () => {
           <hr />
         </div>
         <div>
-          {/* card */}
-          <div className="post">
-            <div className="img-post">
-              <img
-                className="img-size-recipe"
-                src="https://st.depositphotos.com/1900347/4146/i/600/depositphotos_41466555-stock-photo-image-of-slice-of-pizza.jpg"
-                alt=""
-              />
-            </div>
-
-            <h3 className="m-2">Neapolitan-style pizza with Lisa</h3>
-            <div className="owner">
-              <img
-                className="avator"
-                src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Pierre-Person.jpg"
-                alt="owner"
-              />
-              <h6>Mohammad Alhamdan</h6>
-            </div>
+          <div className="posts">
+          {recpielist}
+         
           </div>
         </div>
       </div>
@@ -53,4 +67,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default observer (UserProfile);

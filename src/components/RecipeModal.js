@@ -25,14 +25,8 @@ const RecipeModal = () => {
     image: "",
     discerption: "",
     calories: "",
-<<<<<<< HEAD
-    category:[],
-    ingredients: ["6203813e1e52e4e8912555ed"],
-    amount: "",
-=======
     category: "",
     ingredients: "",
->>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
   });
 
   const handleChange = (event) => {
@@ -94,13 +88,6 @@ const RecipeModal = () => {
     event.preventDefault();
     ingredientStore.createIngredient(newIngr);
   };
-<<<<<<< HEAD
-  const handleSelect = (event) => {
-    setValue ({...categoryStore.category,category:event.target.value})
-    
-  }
-=======
->>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
 
   const handleImage = (event) => {
     setRecipe({ ...recipe, image: event.target.files[0] });
@@ -183,30 +170,12 @@ const RecipeModal = () => {
                 <button className="btn-regster" onClick={addNewCategory}>
                   New Category
                 </button>
-<<<<<<< HEAD
-                <Form onSubmit={handleSubmit}>
-                  <lable>
-                    Category Name:  
-                    <input type= "text" value={cato} onChange={handleChange}/>
-                  </lable>
-                  <p>
-
-
-                  </p>
-                  <lable>
-                    Category Type:
-                    <input type= "text" value={cato} onChange={handleChange}/>
-                  </lable>
-                </Form>
-              <p></p>
-=======
                 <input
                   placeholder="type new category"
                   name="newCat"
                   onChange={handleChangeNewCat}
                 />
               </div>
->>>>>>> 25967478b7cb692f40eab5b62a4bdb961d9eebaa
             </div>
             <div>
               <Form.Label>Ingredients</Form.Label>
