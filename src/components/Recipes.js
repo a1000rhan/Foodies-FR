@@ -19,7 +19,7 @@ const Recipes = () => {
     )
     .map((recipe) => <RecipeItem recipe={recipe} key={recipe} />);
     
-    const cate = categoryStore.category.filter((element) => element.title.toLowerCase().includes(filteredCat.toLocaleLowerCase())).map((element) => (<RecipeItem element={element} key={element}/>))
+    
                
   
   return (
@@ -32,6 +32,7 @@ const Recipes = () => {
         <div>
           <div className="tools">
             <h4 className="cat">Categories</h4>
+            <input type="text" value={filteredCat} onChange={e => setFilteredCat(e.target.value)}/>
             <select name="categories" className="checklist" id="categories">
               {cat}
             </select>
@@ -44,13 +45,8 @@ const Recipes = () => {
             {/* card */}
             {recpielist}
           </div>
-          <div>
-            <input  onChange={e=>setFilteredCat(e.target.value)}/>
-         
-          </div>
-          {/* <div>
-          {cate}
-          </div> */}
+
+        
         </div>
       </div>
     </div>
