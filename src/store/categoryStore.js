@@ -19,7 +19,8 @@ class CategoryStore {
 
   createCategory = async (addNewCategory) => {
     try {
-      const response = api.post("/category", addNewCategory);
+      const response = await api.post("/category", addNewCategory);
+      this.loading = false;
       this.category.push(response.data);
     } catch (e) {
       console.log(e);

@@ -3,6 +3,7 @@ import api from "./api";
 
 class IngredientStore {
   ingredient = [];
+  loading = true;
   constructor() {
     makeAutoObservable(this, {});
   }
@@ -10,6 +11,7 @@ class IngredientStore {
     try {
       const response = await api.get("/ingredient");
       this.ingredient = response.data;
+      this.loading = false;
     } catch (e) {
       console.log(e);
     }
@@ -17,8 +19,9 @@ class IngredientStore {
 
   createIngredient = async (addNewIng) => {
     try {
-      const response = api.post("/ingredient", addNewIng);
+      const response = await api.post("/ingredient", addNewIng);
       this.ingredient.push(response.data);
+      this.loading = false;
     } catch (e) {
       console.log(e);
     }

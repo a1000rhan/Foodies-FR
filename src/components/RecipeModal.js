@@ -104,7 +104,7 @@ const RecipeModal = () => {
 
   const ingredientsList = chooseIng.map((ingr) => (
     <div>
-      <i>{ingr.title}</i>
+      <i>{ingr.name}</i>
     </div>
   ));
   const handleSubmit = (event) => {
