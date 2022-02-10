@@ -42,7 +42,7 @@ const Detail = () => {
           <div className="ing-el">{ing}</div>
         </div>
         <div className="descption">
-          <h2>Discretions</h2>
+          <h2>Description</h2>
           <p>{recipe.description}</p>
         </div>
         <div className="back">
